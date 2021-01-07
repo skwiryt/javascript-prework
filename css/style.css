@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  background: linear-gradient(cadetblue, #704a03);
+  background-repeat: no-repeat;
+  font-size: 20px;
+  font-family: sans-serif;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.container {
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  background: goldenrod;
+}
+
+#messages {
+  min-height: 80px;
+  padding: 30px;
+  margin-top: 20px;
+}
+
+.highlight {
+  background-color: #7e7976;
+}
+
+.prompt {
+  background: #917748;
+  padding: 30px;
+  margin-bottom: 30px;
+}

@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    background: linear-gradient(cadetblue, rgb(112, 74, 3));
+    background-repeat: no-repeat;
+    font-size: 20px;
+    font-family: sans-serif;
+    text-align: center;
+    color: rgba(#000000, 0.9);
+}
+.container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+button {
+    padding: 10px;
+    border:none;
+    background: goldenrod;
+}
+
+#messages {
+    min-height: 80px;
+    
+    padding: 30px;
+    margin-top: 20px
+}
+.highlight {
+    background-color: rgb(126, 121, 118);
+}
+.prompt {
+    background:rgb(145, 119, 72);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+

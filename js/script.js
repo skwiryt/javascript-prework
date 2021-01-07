@@ -1,6 +1,10 @@
+let yourScore = 0;
+let computerScore = 0;
+
 function playGame(argPlayerInput){
     let playerInput = argPlayerInput;
     clearMessages();
+    clearScores();
 
     function getMoveName(argMoveId){
         if(argMoveId == 1){
@@ -20,13 +24,16 @@ function playGame(argPlayerInput){
         || argComputerMove == 'papier' && argPlayerMove == 'nożyce'
         || argComputerMove == 'nożyce' && argPlayerMove == 'kamień'){
         printMessage('Ty wygrywasz!');
+        yourScore++;        
         }
         else if(argComputerMove == argPlayerMove) {
             printMessage('Jest remis');
         }
         else{
             printMessage('Ja wygrałem!');
+            computerScore++;
         }
+        showScores(yourScore, computerScore);
     }
 
     let randomNumber = Math.floor(Math.random() * 3 + 1);
@@ -39,6 +46,7 @@ function playGame(argPlayerInput){
     printMessage('Twój ruch to: ' + playerMove);
     displayResult(computerMove, playerMove); 
 }
+
 document.getElementById("play-rock").addEventListener('click', function(){ 
     playGame(1); 
 });
@@ -48,4 +56,8 @@ document.getElementById("play-paper").addEventListener('click', function(){
 document.getElementById("play-scissors").addEventListener('click', function(){
     playGame(3);
 });
+
+
+
+    
 
