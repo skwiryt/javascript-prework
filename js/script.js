@@ -6,6 +6,7 @@ function playGame(argPlayerInput){
     clearMessages();
     clearScores();
 
+   
     function getMoveName(argMoveId){
         if(argMoveId == 1){
         return 'kamień';
@@ -20,6 +21,7 @@ function playGame(argPlayerInput){
         return 'nieznany ruch';
     }
     function displayResult(argComputerMove, argPlayerMove){
+        
         if(argComputerMove == 'kamień' && argPlayerMove == 'papier' 
         || argComputerMove == 'papier' && argPlayerMove == 'nożyce'
         || argComputerMove == 'nożyce' && argPlayerMove == 'kamień'){
@@ -36,14 +38,30 @@ function playGame(argPlayerInput){
         showScores(yourScore, computerScore);
     }
 
-    let randomNumber = Math.floor(Math.random() * 3 + 1);
-    console.log('Wylosowana liczba to: ' + randomNumber);
-    let computerMove = getMoveName(randomNumber);
-    printMessage('Mój ruch to: ' + computerMove);
-    //let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');    
     console.log('Gracz wpisał: ' + playerInput);
     let playerMove = getMoveName(playerInput);
     printMessage('Twój ruch to: ' + playerMove);
+    let randomNumber = Math.floor(Math.random() * 3 + 1);
+    console.log('Wylosowana liczba to: ' + randomNumber);
+
+    //Cheating starts
+    function cheatThisGame(){
+        if(playerMove == "kamień"){ computerMove = "nożyce"; }
+        if(playerMove == "nożyce"){ computerMove = "papier"; }
+        if(playerMove == "papier"){ computerMove = "kamień"; }
+    }
+    let computerMove;
+    let wishedWins = 0.75; //0.33 is fair game;
+    let biasFactor = (wishedWins - 0.33)/0.66; 
+    let biasWin = Math.random() < biasFactor;
+    if (biasWin) {
+        cheatThisGame();  
+    }
+    //Cheating ends    
+    else{
+        computerMove = getMoveName(randomNumber);     
+    }    
+    printMessage('Mój ruch to: ' + computerMove);
     displayResult(computerMove, playerMove); 
 }
 
@@ -58,6 +76,11 @@ document.getElementById("play-scissors").addEventListener('click', function(){
 });
 
 
+//testing loop
 
-    
+for (let i = 1; i < 1000; i++)
+{
+    playGame(1);
+}
+
 
